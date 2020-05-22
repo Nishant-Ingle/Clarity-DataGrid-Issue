@@ -1,0 +1,59 @@
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+        <a href="..." class="nav-link">
+            <clr-icon shape="cloud"></clr-icon>
+            <span class="title">Sample App</span>
+        </a>
+    </div>
+    <div class="header-nav">
+        <a href="..." class="nav-link"><span class="nav-text">Home</span></a>
+    </div>
+</header>
+
+<div class="content-container">
+  <div class="content-area">
+    <clr-datagrid>
+      <clr-dg-column>Resource Type</clr-dg-column>
+      <clr-dg-column>Issuer</clr-dg-column>
+      <clr-dg-column>Resource Hostname</clr-dg-column>
+      <clr-dg-column>Valid From</clr-dg-column>
+      <clr-dg-column>Valid Until</clr-dg-column>
+      <clr-dg-column>Certificate Status</clr-dg-column>
+      <clr-dg-column>Certificate Operations Status</clr-dg-column>
+      <clr-dg-row *clrDgItems="let host of hosts">
+        <clr-dg-cell>{{host.type}}</clr-dg-cell>
+        <clr-dg-cell>{{host.issuer}}</clr-dg-cell>
+        <clr-dg-cell>{{host.hostname}}</clr-dg-cell>
+        <clr-dg-cell>{{host.validFrom}}</clr-dg-cell>
+        <clr-dg-cell>{{host.validUntil}}</clr-dg-cell>
+        <clr-dg-cell>{{host.status}}</clr-dg-cell>
+        <clr-dg-cell>{{host.operationStatus}}</clr-dg-cell>
+        <ng-container ngProjectAs="clr-dg-row-detail" *ngIf="true">
+          <clr-dg-row-detail *clrIfExpanded>
+            {{key}}
+          </clr-dg-row-detail>
+        </ng-container>
+      </clr-dg-row>
+    </clr-datagrid>
+  </div>
+  <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+   <a clrVerticalNavLink href="https://www.thehumblelab.com" routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="upload-cloud"></clr-icon>Cloud</a>
+    <a clrVerticalNavLink href="http://www.vaficionado.com/" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="heart-broken"></clr-icon>Health</a>
+    <a clrVerticalNavLink href="https://grantorchard.com" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="thumbs-up"></clr-icon>Likes</a>
+    <a clrVerticalNavLink href="https://www.virtualjad.com/" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="sad-face"></clr-icon>Sad ?</a>
+    <a clrVerticalNavLink href="https://www.digitalvspace.com/" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="user"></clr-icon>People</a>
+    <a clrVerticalNavLink href="https://alarasheedblog.wordpress.com/" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="happy-face"></clr-icon>Happy</a>
+    <div class="nav-divider"></div>
+    <a clrVerticalNavLink href="https://twitter.com/vgigacast?lang=en" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="talk-bubbles"></clr-icon>Support</a>
+        
+    </clr-vertical-nav>
+</div>
+</div>
